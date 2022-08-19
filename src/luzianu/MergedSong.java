@@ -197,8 +197,8 @@ public class MergedSong extends Song {
             }
         }
 
-        title = title.replaceAll("[./:\"*?<>|]", "").trim();
-        artist = artist.replaceAll("[./:\"*?<>|]", "").trim();
+        title = title.replaceAll("[/:\"*?<>|]", "").trim();
+        artist = artist.replaceAll("[/:\"*?<>|]", "").trim();
 
         if (title.endsWith("(") || title.endsWith("["))
             title = title.substring(0, title.length() - 1).trim();
@@ -207,14 +207,19 @@ public class MergedSong extends Song {
 
         if (title.isEmpty()) {
             title = getCharts().get(0).getTitle();
-            title = title.replaceAll("[./:\"*?<>|]", "").trim();
+            title = title.replaceAll("[/:\"*?<>|]", "").trim();
             //System.err.println("fixing title to " + title);
         }
         if (artist.isEmpty()) {
             artist = getCharts().get(0).getArtist();
-            artist = artist.replaceAll("[./:\"*?<>|]", "").trim();
+            artist = artist.replaceAll("[/:\"*?<>|]", "").trim();
             //System.err.println("fixing artist to " + artist);
         }
+
+        while (title.endsWith("."))
+            title = title.substring(0, title.length() - 1);
+        while (artist.endsWith("."))
+            artist = artist.substring(0, artist.length() - 1);
 
         String folderName = "[" + artist + "] " + title;
 

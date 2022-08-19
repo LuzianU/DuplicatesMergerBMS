@@ -170,7 +170,9 @@ public class Main {
             for (MergedSong mergedSong : mergedSongs) {
                 if (!mergedSong.hadErrorMoving)
                     continue;
-                System.err.println("Could not properly move: " + mergedSong.getPath());
+                System.err.println("Could not properly move to: " + mergedSong.getPath());
+                for (Song s : mergedSong.getConsumedSongs())
+                    System.err.println("\t\t" + s.getPath());
             }
         }
     }
@@ -572,10 +574,12 @@ public class Main {
                         e.printStackTrace();
                     }
                 } else {
-                    // wav, ogg, png, bmp, etc.
-                    NonChart nonChart = new NonChart(path.toAbsolutePath().toString(), path.toFile().length());
+                    if (path.toAbsolutePath().startsWith(currentSongParent[0])) {
+                        // wav, ogg, png, bmp, etc.
+                        NonChart nonChart = new NonChart(path.toAbsolutePath().toString(), path.toFile().length());
 
-                    currentSong[0].addNonChart(nonChart);
+                        currentSong[0].addNonChart(nonChart);
+                    }
                 }
             });
 
