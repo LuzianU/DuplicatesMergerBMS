@@ -5,6 +5,8 @@ The goal of this application is to merge your whole BMS library, containing tons
 # How does this work
 Since there can go plenty wrong when merging possibly hundreds of thousands of files, there are two stages to this. Files will **only** get modified in the second stage, so if you are unsure if this will completely mess up your BMS library, you can run the first stage without any fear and see how much space all these duplicates take.
 
+Granted, I had a lot of duplicates, but I was able to get my 297 GB folder down to only 156 GB with this.
+
 ## First stage:
 `java -jar DuplicatesMergerBMS.jar --calc [folder to merge to] [semicolon separated input folder list]`
 
