@@ -1,6 +1,8 @@
 # DuplicatesMergerBMS
 
-The goal of this application is to merge your whole BMS library, containing tons of duplicates, into a single folder, with the individual song folders named "[Artist] Title"
+The goal of this application is to merge your whole BMS library, containing tons of duplicates, into a single folder, with the individual song folders named "[Artist] Title".
+
+[Download](https://github.com/LuzianU/DuplicatesMergerBMS/releases/latest)
 
 # How does this work
 Since there can go plenty wrong when merging possibly hundreds of thousands of files, there are two stages to this. Files will **only** get modified in the second stage, so if you are unsure if this will completely mess up your BMS library, you can run the first stage without any fear and see how much space all these duplicates take.
